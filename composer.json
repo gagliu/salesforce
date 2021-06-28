@@ -15,7 +15,8 @@
         "laravel/socialite": "^5.2",
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.5",
-        "omniphx/forrest": "2.*"
+        "rob-lester-jr04/eloquent-sales-force": "^2.7",
+        "socialiteproviders/salesforce": "^4.1"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

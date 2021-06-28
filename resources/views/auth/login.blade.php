@@ -43,6 +43,13 @@
                     {{ __('Log in') }}
                 </x-jet-button>
             </div>
+            {{-- Login with SalesForce --}}
+            <div class="flex items-center justify-end mt-4">
+                <a class="btn" href="{{ url('auth/salesforce') }}"
+                    style="background: green; color: #ffffff; padding: 10px; width: 100%; text-align: center; display: block; border-radius:3px;">
+                    Login with SalesForce
+                </a>
+            </div>
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>
