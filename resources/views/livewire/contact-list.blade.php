@@ -10,18 +10,24 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($contacts as $contact)
-            <tr>
-                <td class="border border-green-600">{{ $contact->FirstName }}</td>
-                <td class="border border-green-600">{{ $contact->LastName }}</td>
-                <td class="border border-green-600">{{ $contact->Department }}</td>
-                <td class="border border-green-600">{{ $contact->Email }}</td>
-                <td class="border border-green-600 text-center">
-                    <a href="{{ route('contact', $contact->Id) }}">View Details</a>
-                </td>
-            </tr>
-            @endforeach
+            @if($contacts)
+                @foreach($contacts as $contact)
+                <tr>
+                    <td class="border border-green-600">{{ $contact->FirstName }}</td>
+                    <td class="border border-green-600">{{ $contact->LastName }}</td>
+                    <td class="border border-green-600">{{ $contact->Department }}</td>
+                    <td class="border border-green-600">{{ $contact->Email }}</td>
+                    <td class="border border-green-600 text-center">
+                        <a href="{{ route('contact', $contact->Id) }}">View Details</a>
+                    </td>
+                </tr>
+                @endforeach
+            @endif
         </tbody>
     </table>
+
+    @if($contacts)
     {{ $contacts->links() }}
+    @endif
+    
 </div>

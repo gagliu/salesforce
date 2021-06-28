@@ -10,9 +10,16 @@ class ContactList extends Component
 {
     public function render()
     {
-        //Get contacts from SalesForce paginated by 15 and ordered by name
-        $contacts = Contact::select(['Id', 'FirstName', 'LastName', 'Department', 'Email'])->orderBy('Name')->paginate(15);
+        try {
+            //Get contacts from SalesForce paginated by 15 and ordered by name
+            $contacts = Contact::select(['Id', 'FirstName', 'LastName', 'Department', 'Email'])->orderBy('Name')->paginate(15);
+            return view('livewire.contact-list', compact('contacts'));
 
-        return view('livewire.contact-list', compact('contacts'));
+        } catch (\Throwable $th) {
+
+            $contacts = [];
+            session()->flash('error', 'The contacts could not be retrieved from SalesForce');
+            return view('livewire.contact-list', compact('contacts'));
+        }
     }
 }
